@@ -1,0 +1,52 @@
+[build-system]
+requires      = ["setuptools>=61.0.0", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jt"
+version = "0.1.0"
+description = "jt is a terminal line interface for displaying, editing and interacting with JSON data in a tree view"
+readme = "README.md"
+authors = [{ name = "May B.", email = "me@wadza.fr" }]
+urls.Homepage = "https://github.com/shup1/jt"
+urls.Tracker = "https://github.com/shup1/jt/issues"
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["json", "terminal", "tui", "tool", "explorer", "viewer"]
+requires-python = ">=3.8"
+dependencies = [
+    "textual >= 0.8.1",
+    "textual-autocomplete >= 1.0.0b0",
+]
+optional-dependencies.dev = [
+    "pip-tools", 
+    "check-manifest",
+    "check-wheel-contents"
+]
+optional-dependencies.format = [
+    "black",
+    "isort",
+]
+optional-dependencies.test = ["pytest"]
+scripts.jt = "jt.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["jt*"]
+exclude = ["jt.tests*"]
+
+[tool.black]
+includes = "jt"
+
+[tool.isort]
+profile = "black"
+src_paths = ["jt", "tests"]
+
+[tool.check-wheel-contents]
+toplevel = ["jt"]
