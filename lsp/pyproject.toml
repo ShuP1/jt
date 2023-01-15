@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "lsp"
+version = "0.1.0"
+description = ""
+authors = ["Shu <me@wadza.fr>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+lsprotocol = "^2022.0.0a10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
